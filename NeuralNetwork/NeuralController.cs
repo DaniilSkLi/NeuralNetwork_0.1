@@ -90,6 +90,7 @@ namespace NeuralNetwork
                 OutputNeurons[output].value = 0;
                 for (int lastHidden = 0; lastHidden < HiddenNeurons[HiddenNeurons.Length-1].Length; lastHidden++)
                 {
+                    Console.WriteLine(1);
                     OutputNeurons[output].value += OutputNeurons[output].weights[lastHidden] * HiddenNeurons[HiddenNeurons.Length-1][lastHidden].value;
                 }
             }
@@ -118,8 +119,8 @@ namespace NeuralNetwork
                 for (int place = 0; place < hidden; place++)
                 {
                     HiddenNeurons[layer][place] = CreateHiddenNeuron(weightsCount);
-                    weightsCount = hidden;
                 }
+                weightsCount = hidden;
             }
         }
         private void CreateOutputNeurons(int count, int CountHiddenNeurons, string[] output_assocs)
