@@ -1,0 +1,10 @@
+D:\Programs\VisualStudio_DATA\Projects\NeuralNetwork_0.1\NeuralNetwork_0.1\bin\Debug\NeuralNetwork_0.1.exe.config
+D:\Programs\VisualStudio_DATA\Projects\NeuralNetwork_0.1\NeuralNetwork_0.1\bin\Debug\NeuralNetwork_0.1.exe
+D:\Programs\VisualStudio_DATA\Projects\NeuralNetwork_0.1\NeuralNetwork_0.1\bin\Debug\NeuralNetwork_0.1.pdb
+D:\Programs\VisualStudio_DATA\Projects\NeuralNetwork_0.1\NeuralNetwork_0.1\obj\Debug\NeuralNetwork_0.1.csprojAssemblyReference.cache
+D:\Programs\VisualStudio_DATA\Projects\NeuralNetwork_0.1\NeuralNetwork_0.1\obj\Debug\NeuralNetwork_0._1.Properties.Resources.resources
+D:\Programs\VisualStudio_DATA\Projects\NeuralNetwork_0.1\NeuralNetwork_0.1\obj\Debug\NeuralNetwork_0.1.csproj.GenerateResource.cache
+D:\Programs\VisualStudio_DATA\Projects\NeuralNetwork_0.1\NeuralNetwork_0.1\obj\Debug\NeuralNetwork_0.1.csproj.CoreCompileInputs.cache
+D:\Programs\VisualStudio_DATA\Projects\NeuralNetwork_0.1\NeuralNetwork_0.1\obj\Debug\NeuralNetwork_0.1.exe
+D:\Programs\VisualStudio_DATA\Projects\NeuralNetwork_0.1\NeuralNetwork_0.1\obj\Debug\NeuralNetwork_0.1.pdb
+D:\Programs\VisualStudio_DATA\Projects\NeuralNetwork_0.1\NeuralNetwork_0.1\obj\Debug\NeuralNetwork_0._1.MainForm.resources
