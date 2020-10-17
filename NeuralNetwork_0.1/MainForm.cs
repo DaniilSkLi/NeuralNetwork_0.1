@@ -21,7 +21,7 @@ namespace NeuralNetwork_0._1
         private NeuralController neural;
         private void Menu_CreateNeuralNetwork_Click(object sender, EventArgs e)
         {
-            neural = new NeuralController(784, 5, 2, 10, new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" });
+            neural = new NeuralController(784, 16, 2, 10, new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" });
 
             // Visualing
             Menu_CreateNeuralNetwork.Enabled = false;
@@ -66,7 +66,7 @@ namespace NeuralNetwork_0._1
                 double[] InputData = new double[784];
                 int place = 0;
                 string ImagePath = OpenImageFile.FileName;
-                MessageBox.Show(ImagePath);
+
                 Bitmap img = new Bitmap(ImagePath);
                 for (int h = 0; h < img.Height; h++)
                 {
@@ -78,7 +78,36 @@ namespace NeuralNetwork_0._1
                         place++;
                     }
                 }
+
+                // Image Debug
+                ///*
+                Bitmap outputImg = new Bitmap(img.Width, img.Height);
+                int i = 0;
+                for (int h = 0; h < img.Height; h++)
+                {
+                    for (int w = 0; w < img.Width; w++)
+                    {
+                        if (InputData[i] == 1)
+                        {
+                            outputImg.SetPixel(w, h, Color.Red);
+                        }
+                        else if (InputData[i] == 0)
+                        {
+                            outputImg.SetPixel(w, h, Color.Black);
+                        }
+                        else
+                        {
+                            outputImg.SetPixel(w, h, Color.Blue);
+                        }
+                        i++;
+                    }
+                }
+                outputImg.Save("1.jpg");//*/
+
+                // Calculate
                 MessageBox.Show(neural.TestNeuralNetwork(InputData));
+                //neural.LearnNeuralNetwork(InputData, "1", 200);
+                //MessageBox.Show(neural.TestNeuralNetwork(InputData));
             }
         }
 

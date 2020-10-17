@@ -38,10 +38,10 @@
             this.Menu_TestNeuralNetwork = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_TestNeuralNetwork_Open = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_TestNeuralNetwork_Open_ImageFolder = new System.Windows.Forms.ToolStripMenuItem();
-            this.Menu_DeleteNeuralNetwork = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_TestNeuralNetwork_Open_Image = new System.Windows.Forms.ToolStripMenuItem();
-            this.OpenImageFile = new System.Windows.Forms.OpenFileDialog();
             this.Menu_Save = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_DeleteNeuralNetwork = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenImageFile = new System.Windows.Forms.OpenFileDialog();
             this.ProgramMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             // Menu_CreateNeuralNetwork
             // 
             this.Menu_CreateNeuralNetwork.Name = "Menu_CreateNeuralNetwork";
-            this.Menu_CreateNeuralNetwork.Size = new System.Drawing.Size(180, 22);
+            this.Menu_CreateNeuralNetwork.Size = new System.Drawing.Size(141, 22);
             this.Menu_CreateNeuralNetwork.Text = "Создать";
             this.Menu_CreateNeuralNetwork.Click += new System.EventHandler(this.Menu_CreateNeuralNetwork_Click);
             // 
@@ -84,7 +84,7 @@
             this.Menu_Open});
             this.Menu_Learn.Enabled = false;
             this.Menu_Learn.Name = "Menu_Learn";
-            this.Menu_Learn.Size = new System.Drawing.Size(180, 22);
+            this.Menu_Learn.Size = new System.Drawing.Size(141, 22);
             this.Menu_Learn.Text = "Обучение";
             // 
             // Menu_Open
@@ -108,7 +108,7 @@
             this.Menu_TestNeuralNetwork_Open});
             this.Menu_TestNeuralNetwork.Enabled = false;
             this.Menu_TestNeuralNetwork.Name = "Menu_TestNeuralNetwork";
-            this.Menu_TestNeuralNetwork.Size = new System.Drawing.Size(180, 22);
+            this.Menu_TestNeuralNetwork.Size = new System.Drawing.Size(141, 22);
             this.Menu_TestNeuralNetwork.Text = "Тестировать";
             // 
             // Menu_TestNeuralNetwork_Open
@@ -117,7 +117,7 @@
             this.Menu_TestNeuralNetwork_Open_ImageFolder,
             this.Menu_TestNeuralNetwork_Open_Image});
             this.Menu_TestNeuralNetwork_Open.Name = "Menu_TestNeuralNetwork_Open";
-            this.Menu_TestNeuralNetwork_Open.Size = new System.Drawing.Size(180, 22);
+            this.Menu_TestNeuralNetwork_Open.Size = new System.Drawing.Size(121, 22);
             this.Menu_TestNeuralNetwork_Open.Text = "Открыть";
             // 
             // Menu_TestNeuralNetwork_Open_ImageFolder
@@ -127,14 +127,6 @@
             this.Menu_TestNeuralNetwork_Open_ImageFolder.Text = "Папку с картинками";
             this.Menu_TestNeuralNetwork_Open_ImageFolder.Click += new System.EventHandler(this.Menu_TestNeuralNetwork_Open_ImageFolder_Click);
             // 
-            // Menu_DeleteNeuralNetwork
-            // 
-            this.Menu_DeleteNeuralNetwork.Enabled = false;
-            this.Menu_DeleteNeuralNetwork.Name = "Menu_DeleteNeuralNetwork";
-            this.Menu_DeleteNeuralNetwork.Size = new System.Drawing.Size(180, 22);
-            this.Menu_DeleteNeuralNetwork.Text = "Удалить";
-            this.Menu_DeleteNeuralNetwork.Click += new System.EventHandler(this.Menu_DeleteNeuralNetwork_Click);
-            // 
             // Menu_TestNeuralNetwork_Open_Image
             // 
             this.Menu_TestNeuralNetwork_Open_Image.Name = "Menu_TestNeuralNetwork_Open_Image";
@@ -142,17 +134,25 @@
             this.Menu_TestNeuralNetwork_Open_Image.Text = "Картинку";
             this.Menu_TestNeuralNetwork_Open_Image.Click += new System.EventHandler(this.Menu_TestNeuralNetwork_Open_Image_Click);
             // 
-            // OpenImageFile
-            // 
-            this.OpenImageFile.Filter = "Image|*.jpg;*.png";
-            this.OpenImageFile.Title = "OpenImage";
-            // 
             // Menu_Save
             // 
             this.Menu_Save.Name = "Menu_Save";
-            this.Menu_Save.Size = new System.Drawing.Size(180, 22);
+            this.Menu_Save.Size = new System.Drawing.Size(141, 22);
             this.Menu_Save.Text = "Сохранить";
             this.Menu_Save.Click += new System.EventHandler(this.Menu_Save_Click);
+            // 
+            // Menu_DeleteNeuralNetwork
+            // 
+            this.Menu_DeleteNeuralNetwork.Enabled = false;
+            this.Menu_DeleteNeuralNetwork.Name = "Menu_DeleteNeuralNetwork";
+            this.Menu_DeleteNeuralNetwork.Size = new System.Drawing.Size(141, 22);
+            this.Menu_DeleteNeuralNetwork.Text = "Удалить";
+            this.Menu_DeleteNeuralNetwork.Click += new System.EventHandler(this.Menu_DeleteNeuralNetwork_Click);
+            // 
+            // OpenImageFile
+            // 
+            this.OpenImageFile.Filter = "Image|*.jpg;*.png;*.bmp";
+            this.OpenImageFile.Title = "OpenImage";
             // 
             // MainForm
             // 

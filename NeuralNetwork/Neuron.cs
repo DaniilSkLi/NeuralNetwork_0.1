@@ -18,19 +18,23 @@ namespace NeuralNetwork
     {
         public double value;
         public double[] weights;
-        public HiddenNeuron(double[] weights)
+        public double bias;
+        public HiddenNeuron(double[] weights, double bias)
         {
             this.weights = weights;
+            this.bias = bias;
         }
     }
     public class OutputNeuron
     {
         public double value;
         public double[] weights;
+        public double bias;
         public string association;
-        public OutputNeuron(double[] weights, string association)
+        public OutputNeuron(double[] weights, double bias, string association)
         {
             this.weights = weights;
+            this.bias = bias;
             this.association = association;
         }
     }

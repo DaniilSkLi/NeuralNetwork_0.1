@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,7 +44,6 @@ namespace NeuralNetwork
             RecalculateResult();
             return OutputResult();
         }
-
         // Hidden funcrions to NeuralNetwork Control
         private string OutputResult()
         {
@@ -61,9 +61,14 @@ namespace NeuralNetwork
 
             return Result;
         }
+        private double SigmoidNormalize(double In)
+        {
+            //return Math.Tanh(In);
+            return 1d / (1d + Math.Exp(-In));
+        }
         private void RecalculateResult()
         {
-            // ziro layer with first input neurons
+            // zero layer with first input neurons
             for (int hidden = 0; hidden < HiddenNeurons[0].Length; hidden++)
             {
                 HiddenNeurons[0][hidden].value = 0;
@@ -71,17 +76,21 @@ namespace NeuralNetwork
                 {
                     HiddenNeurons[0][hidden].value += HiddenNeurons[0][hidden].weights[input] * InputNeurons[input].value;
                 }
+                HiddenNeurons[0][hidden].value -= HiddenNeurons[0][hidden].bias;
+                HiddenNeurons[0][hidden].value = SigmoidNormalize(HiddenNeurons[0][hidden].value);
             }
             // remaining layers of hidden neurons
             for (int layer = 1; layer < HiddenNeurons.Length; layer++)
             {
                 for (int hidden = 0; hidden < HiddenNeurons[layer].Length; hidden++)
                 {
-                    HiddenNeurons[layer][hidden].value = 0;
+                    HiddenNeurons[layer][hidden].value = 0d;
                     for (int prevHidden = 0; prevHidden < HiddenNeurons[layer-1].Length; prevHidden++)
                     {
                         HiddenNeurons[layer][hidden].value += HiddenNeurons[layer][hidden].weights[prevHidden] * HiddenNeurons[layer-1][prevHidden].value;
                     }
+                    HiddenNeurons[layer][hidden].value -= HiddenNeurons[layer][hidden].bias;
+                    HiddenNeurons[layer][hidden].value = SigmoidNormalize(HiddenNeurons[layer][hidden].value);
                 }
             }
             // output neurons calculate
@@ -90,9 +99,10 @@ namespace NeuralNetwork
                 OutputNeurons[output].value = 0;
                 for (int lastHidden = 0; lastHidden < HiddenNeurons[HiddenNeurons.Length-1].Length; lastHidden++)
                 {
-                    Console.WriteLine(1);
                     OutputNeurons[output].value += OutputNeurons[output].weights[lastHidden] * HiddenNeurons[HiddenNeurons.Length-1][lastHidden].value;
                 }
+                OutputNeurons[output].value -= OutputNeurons[output].bias;
+                OutputNeurons[output].value = SigmoidNormalize(OutputNeurons[output].value);
             }
         }
         private void ChangeValueInputNeurons(double[] Data)
@@ -108,7 +118,7 @@ namespace NeuralNetwork
         {
             for (int place = 0; place < InputNeurons.Length; place++)
             {
-                InputNeurons[place] = CreateInputNeuron(rand.NextDouble());
+                InputNeurons[place] = CreateInputNeuron();
             }
         }
         private void CreateHiddenNeurons(int hidden, int hiddenLayers, int CountInputNeurons)
@@ -125,26 +135,27 @@ namespace NeuralNetwork
         }
         private void CreateOutputNeurons(int count, int CountHiddenNeurons, string[] output_assocs)
         {
-            for (int place = 0; place < OutputNeurons.Length; place++)
+            for (int place = 0; place < count; place++)
             {
                 OutputNeurons[place] = CreateOutputNeuron(CountHiddenNeurons, output_assocs[place]);
             }
         }
 
         // Create one type neuron
-        private InputNeuron CreateInputNeuron(double value)
+        private InputNeuron CreateInputNeuron()
         {
-            return new InputNeuron(value);
+            return new InputNeuron(rand.Next(-100, 100) / 100);
         }
         private HiddenNeuron CreateHiddenNeuron(int weightsCount)
         {
             double[] weights = new double[weightsCount];
 
-            for (int w = 0; w < weights.Length; w++)
+            for (int w = 0; w < weightsCount; w++)
             {
-                weights[w] = rand.NextDouble();
+                weights[w] = rand.Next(-1000, 1000) / 100d;
             }
-            return new HiddenNeuron(weights);
+            double bias = rand.Next(0, 100);
+            return new HiddenNeuron(weights, bias);
         }
         private OutputNeuron CreateOutputNeuron(int weightsCount, string assoc)
         {
@@ -152,9 +163,10 @@ namespace NeuralNetwork
 
             for (int w = 0; w < weights.Length; w++)
             {
-                weights[w] = rand.NextDouble();
+                weights[w] = rand.Next(-1000, 1000) / 100d;
             }
-            return new OutputNeuron(weights, assoc);
+            double bias = rand.Next(0, 100);
+            return new OutputNeuron(weights, bias, assoc);
         }
     }
 }
